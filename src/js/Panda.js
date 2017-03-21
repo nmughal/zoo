@@ -20,19 +20,21 @@
     }
 
     /**
-     * Static method which returns the scientific name of that species
+     * Static method
+     * @return {string} returns the scientific name of that species
      */
     static scientificName() {
       return 'Ailuropoda melanoleuca';
     }
 
-    eatsBamboo(bamboo) {
+    eatsFood(bamboo) {
       return this.name + ' loves to eat ' + bamboo;
     }
 
-    giveBirth(name) {
+    giveBirth(name, dateOfBirth) {
       let baby = new Panda();
       baby.name = name;
+      baby.dateOfBirth = dateOfBirth;
       return baby;
     }
 
@@ -40,10 +42,10 @@
      * Returns a string with Panda's name and species
      */
     toString() {
-      return this.name + ' is part of the ' + this.scientificName + ' species';
+      return this.name + ' is part of the ' + Panda.scientificName() + ' species';
     }
 
 
   };
-  
+
 }());

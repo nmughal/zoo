@@ -8,18 +8,17 @@
 
   let bobby = new Penguin('Bobby', new Date ('3/1/1975'));
   console.log(bobby);
-  // bobby.changeName('Robby');
+  console.log(bobby.name + ' is ' + bobby.animalAge() + ' years old');
+  console.log(bobby.eatsFish('fish'));
+  console.log(bobby.toString());
+  console.log(bobby.giveBirth('Tobby', new Date('3/1/2016')));
 
-  console.log(Penguin.scientificName() );
-
-  let billi = new Panda('Billi', new Date ('3/1/1975'));
+  let billi = new Panda('Billi', new Date ('3/1/1976'));
   console.log(billi);
-
   billi.changeName('Tilli');
-
-  console.log(billi.name);
-  console.log(billi.getDob());
-
-
+  console.log(billi.name + ' is ' + billi.animalAge() + ' years old');
+  console.log(billi.eatsFood('bamboo'));
+  console.log(billi.toString());
+  console.log(billi.giveBirth('Willi', new Date ('4/1/2016')));
 
 }());
