@@ -11,8 +11,20 @@
      *
      */
     constructor(name, dateOfBirth) {
-      this.name = name;
-      this.dateOfBirth = dateOfBirth;
+
+      if(typeof(name) === 'string'){
+        this.name = name;
+      } else {
+        let err = new TypeError('Please provide a string for the name');
+        throw err;
+      }
+
+      if(dateOfBirth instanceof Date) {
+        this.dateOfBirth = dateOfBirth;
+      } else {
+        let err = new TypeError('Please provide a date');
+        throw err;
+      }
 
       console.log('Creating a new Animal!');
       }
@@ -45,7 +57,6 @@
     }
 
   };
-
 
 
 
