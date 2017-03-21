@@ -2,19 +2,23 @@
   'use strict';
 
   let Animal = window.zoo.Animal;
-  let Bird = window.zoo.Bird;
-  let Cat = window.zoo.Cat;
+  let Penguin = window.zoo.Penguin;
+  let Panda = window.zoo.Panda;
 
 
-  let bobby = new Bird ('Bobby', new Date ('3/1/1975'));
+  let bobby = new Penguin('Bobby', new Date ('3/1/1975'));
   console.log(bobby);
   // bobby.changeName('Robby');
 
-  let billi = new Cat('Billi', new Date ('3/1/1975'));
-  console.log(billi);
-  billi.changeName('Tilli');
-  console.log(billi.name);
+  console.log(Penguin.scientificName() );
 
+  let billi = new Panda('Billi', new Date ('3/1/1975'));
+  console.log(billi);
+
+  billi.changeName('Tilli');
+
+  console.log(billi.name);
+  console.log(billi.getDob());
 
 
 
