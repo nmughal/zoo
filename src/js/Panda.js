@@ -27,14 +27,12 @@
       return 'Ailuropoda melanoleuca';
     }
 
-    eatsFood(bamboo) {
-      return this.name + ' loves to eat ' + bamboo;
+    eatsFood(food) {
+      return this.name + ' loves to eat ' + food;
     }
 
     giveBirth(name, dateOfBirth) {
-      let baby = new Panda();
-      baby.name = name;
-      baby.dateOfBirth = dateOfBirth;
+      let baby = new Panda(name, dateOfBirth);
       return baby;
     }
 

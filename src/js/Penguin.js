@@ -32,9 +32,7 @@
     }
 
     giveBirth(name, dateOfBirth) {
-      let baby = new Penguin();
-      baby.name = name;
-      baby.dateOfBirth = dateOfBirth;
+      let baby = new Penguin(name, dateOfBirth);
       return baby;
     }
 
