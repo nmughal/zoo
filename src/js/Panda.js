@@ -8,21 +8,25 @@
   window.zoo.Panda = class Panda extends Animal {
 
     /**
-     * Accepts two arguments for instance of Panda
-     * @param {String} name
-     * @param {date} dateOfBirth
-     * @return {void}
-     */
-    constructor(name, dateOfBirth){
-      super(name, dateOfBirth);  // refers to the method of the same name on the parent class
+    * Constructs a Panda
+    * @param   {String}  name          Name of Panda
+    * @param   {date}    dateOfBirth   DOB of Panda
+    * @throws  {TypeError}             Error when super is invalid
+    * @return  {void}
+    */
+    constructor(name, dateOfBirth) {
+      try {
+        super(name, dateOfBirth);
+      } catch (err) {
+        throw new TypeError('Failed');
+      }
       this.activity = 'sleeps'; // Panda-specific info
-      console.log('Creating a Panda!');
     }
 
     /**
-     * Static method
-     * @return {string} returns the scientific name of that species
-     */
+    * Static method
+    * @return {string} returns the scientific name of that species
+    */
     static scientificName() {
       return 'Ailuropoda melanoleuca';
     }
@@ -32,13 +36,17 @@
     }
 
     giveBirth(name, dateOfBirth) {
-      let baby = new Panda(name, dateOfBirth);
-      return baby;
+      try {
+        let baby = new Panda(name, dateOfBirth);
+        return baby;
+      } catch (err) {
+        throw new TypeError('Failed');
+      }
     }
 
     /**
-     * Returns a string with Panda's name and species
-     */
+    * Returns a string with Panda's name and species
+    */
     toString() {
       return this.name + ' is part of the ' + Panda.scientificName() + ' species';
     }

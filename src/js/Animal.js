@@ -5,50 +5,55 @@
 
   window.zoo.Animal = class Animal {
     /**
-     * @param {string} name
-     * @param {date} dateOfBirth
-     * @return {void}
-     *
-     */
+    * Constructs a new animal
+    * @param   {string}     name         Name of the animal
+    * @param   {date}       dateOfBirth  Date the animal was born
+    * @throws  {TypeError}               Error when the name is not a valid string or date is not a valid date
+    * @return  {void}
+    */
     constructor(name, dateOfBirth) {
 
       if(typeof(name) === 'string'){
         this.name = name;
       } else {
-        let err = new TypeError('Please provide a string for the name');
-        throw err;
+        throw new TypeError('Please provide a string for the name');
       }
 
       if(dateOfBirth instanceof Date) {
         this.dateOfBirth = dateOfBirth;
+      } else if (dateOfBirth === undefined) {
+        this.dateOfBirth = new Date();
       } else {
-        let err = new TypeError('Please provide a date');
-        throw err;
+        throw new TypeError('Please provide a date');
       }
-
-      console.log('Creating a new Animal!');
-      }
-
-    getDob() {
-      return this.dateOfBirth;
     }
 
+    /**
+    * Assigns a new name to animal
+    * @param   {string}     newName   New name of the animal
+    * @throws  {TypeError}            Error when newName is not a string
+    * @return  {string}
+    */
     changeName(newName){
-      this.name = newName;
+      if(typeof(newName) === 'string') {
+        this.name = newName;
+      } else {
+        throw new TypeError('Please provide a string for the name');
+      }
     }
 
-    printName(){
-      console.log(this.name);
-    }
-
+    /**
+    * Returns a string with information about the animal object
+    * @return  {string}  String of info
+    */
     toString(){
       return this.name + ' was born on ' + this.dateOfBirth;
     }
 
     /**
-     * Gets the current age of the Animal (in whole year)
-     * @return {number} Returns the animal's age
-     */
+    * Gets the current age of the animal (in whole year)
+    * @return  {number}  The animal's age
+    */
     animalAge(){
       let yearOfBirth = this.dateOfBirth.getFullYear();
       let currentYear = new Date().getFullYear();

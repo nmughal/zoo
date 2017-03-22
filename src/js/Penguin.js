@@ -8,21 +8,24 @@
   window.zoo.Penguin = class Penguin extends Animal {
 
     /**
-     * Accepts two arguments for instance of Penguin
-     * @param {String} name
-     * @param {Date} dateOfBirth
-     * @return {void}
-     */
-    constructor(name, dateOfBirth){
-      super(name, dateOfBirth); //refer to the method of the same name on the parent class
+    * Accepts two arguments for instance of Penguin
+    * @param   {String}  name          Name of Penguin
+    * @param   {date}    dateOfBirth   DOB of Penguin
+    * @return  {void}
+    */
+    constructor(name, dateOfBirth) {
+      try {
+        super(name, dateOfBirth);
+      } catch (err) {
+        throw new TypeError('Failed');
+      }
       this.activity = 'swims'; // Penguin-specific info
-      console.log('Creating a Penguin');
     }
 
     /**
-     * Static method
-     * @return {string} returns the scientific name of that species
-     */
+    * Static method
+    * @return {string} returns the scientific name of that species
+    */
     static scientificName() {
       return 'Spheniscidae';
     }
@@ -32,13 +35,17 @@
     }
 
     giveBirth(name, dateOfBirth) {
-      let baby = new Penguin(name, dateOfBirth);
-      return baby;
+      try {
+        let baby = new Penguin(name, dateOfBirth);
+        return baby;
+      } catch (err) {
+        throw new TypeError('Failed');
+      }
     }
 
     /**
-     * Returns a string with Penguin's name and species
-     */
+    * Returns a string with Penguin's name and species
+    */
     toString() {
       return this.name + ' is part of the ' + Penguin.scientificName() + ' species';
     }
