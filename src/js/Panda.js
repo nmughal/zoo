@@ -15,11 +15,7 @@
     * @return  {void}
     */
     constructor(name, dateOfBirth) {
-      try {
-        super(name, dateOfBirth);
-      } catch (err) {
-        throw new TypeError('Failed');
-      }
+      super(name, dateOfBirth);
       this.activity = 'sleeps'; // Panda-specific info
     }
 
@@ -32,7 +28,11 @@
     }
 
     eatsFood(food) {
-      return this.name + ' loves to eat ' + food;
+      if(!food || (typeof food !== 'string')) {
+        throw TypeError('Please enter a valid food');
+      } else {
+        return this.name + ' loves to eat ' + food;
+      }
     }
 
     giveBirth(name, dateOfBirth) {
